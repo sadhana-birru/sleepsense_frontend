@@ -6,9 +6,12 @@ import {
   Moon, Activity, Heart, Smile
 } from 'lucide-react';
 import {
+
   ResponsiveContainer, LineChart, Line, XAxis, YAxis,
   CartesianGrid, Tooltip,
 } from 'recharts';
+
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
 
 /* ── Utils ── */
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -36,7 +39,7 @@ export default function Profile() {
 
   React.useEffect(() => {
     if (!token || token === 'null' || token === 'undefined') return;
-    fetch('/api/history', { 
+    fetch(`${API_BASE}/api/history`, { 
       headers: { Authorization: `Bearer ${token}` } 
     })
       .then(r => r.ok ? r.json() : [])

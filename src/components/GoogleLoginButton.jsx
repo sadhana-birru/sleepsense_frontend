@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 const GoogleLoginButton = ({ onError }) => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -9,7 +12,7 @@ const GoogleLoginButton = ({ onError }) => {
 
   const handleCredentialResponse = async (response) => {
     try {
-      const res = await fetch('/api/auth/google', {
+      const res = await fetch(`${API_BASE}/api/auth/google`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ credential: response.credential }),

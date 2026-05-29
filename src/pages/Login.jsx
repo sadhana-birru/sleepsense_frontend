@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import bannerImg from '../assets/auth_banner.jpg';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 
 function HeroLeft() {
   return (
@@ -31,7 +34,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault(); setError(null); setIsLoading(true);
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch(`${API_BASE}/api/login`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
@@ -71,7 +74,6 @@ export default function Login() {
               Track your sleep, voice, emotions<br/>and daily well-being in one place.
             </p>
           </div>
-
 
           {/* Error */}
           {error && (

@@ -4,6 +4,9 @@ import { cn } from '../utils/cn';
 import DataSourceSelector from './DataSourceSelector';
 import { AudioRecorder } from '../utils/audioUtils';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 function CustomSelect({ options, value, onChange, name, triggerClassName, dropdownClassName }) {
     const [isOpen, setIsOpen] = useState(false);
     
@@ -150,7 +153,7 @@ export default function InputForm({ onSubmit, isLoading }) {
     useEffect(() => {
         const checkFitbitStatus = async () => {
             try {
-                const response = await fetch('/api/auth/fitbit/status', {
+                const response = await fetch(`${API_BASE}/api/auth/fitbit/status`, {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }

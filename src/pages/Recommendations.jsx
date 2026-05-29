@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { motion } from 'framer-motion';
 import {
+
   Moon, Smartphone, Coffee, Brain, Droplets, Headphones,
   BedDouble, MonitorOff, Timer, Footprints, Wind,
   ShieldAlert, MessageCircle, Ban, Utensils, Heart,
   CheckCircle, AlertTriangle, Flame, ChevronRight, Sparkles
 } from 'lucide-react';
+
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
 
 /* ── Recommendation tiers based on overall score ── */
 const TIERS = {
@@ -107,7 +110,7 @@ export default function Recommendations() {
 
   useEffect(() => {
     if (!token || token === 'null' || token === 'undefined') return;
-    fetch('/api/history', {
+    fetch(`${API_BASE}/api/history`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(r => r.ok ? r.json() : [])

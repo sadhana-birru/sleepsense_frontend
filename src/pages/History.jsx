@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { motion } from 'framer-motion';
 import { 
+
   Activity, Clock, Calendar, ChevronRight, 
   Search, Filter, ShieldAlert, CheckCircle, AlertTriangle
 } from 'lucide-react';
+
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
 
 const fadeUp = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 } };
 
@@ -18,7 +21,7 @@ export default function History() {
 
   useEffect(() => {
     if (!token || token === 'null' || token === 'undefined') return;
-    fetch('/api/history', { 
+    fetch(`${API_BASE}/api/history`, { 
       headers: { Authorization: `Bearer ${token}` } 
     })
       .then(r => { 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Moon, Bed, Clock, Activity, Calendar, Loader2, AlertCircle } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 const FitbitDataDisplay = ({ date, onDataUpdate }) => {
   const [sleepData, setSleepData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +14,7 @@ const FitbitDataDisplay = ({ date, onDataUpdate }) => {
     setError(null);
     
     try {
-      const response = await fetch(`/api/fitbit/sleep/${targetDate}`, {
+      const response = await fetch(`${API_BASE}/api/fitbit/sleep/${targetDate}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

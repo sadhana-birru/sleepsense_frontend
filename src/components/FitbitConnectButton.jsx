@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, ExternalLink, Check, X, Loader2 } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 const FitbitConnectButton = ({ onDisconnect, isConnected, isLoading = false }) => {
   const [isConnecting, setIsConnecting] = useState(false);
 
@@ -9,7 +12,7 @@ const FitbitConnectButton = ({ onDisconnect, isConnected, isLoading = false }) =
     
     setIsConnecting(true);
     try {
-      const response = await fetch('/api/auth/fitbit/connect', {
+      const response = await fetch(`${API_BASE}/api/auth/fitbit/connect`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -33,7 +36,7 @@ const FitbitConnectButton = ({ onDisconnect, isConnected, isLoading = false }) =
     if (isLoading) return;
     
     try {
-      const response = await fetch('/api/auth/fitbit/disconnect', {
+      const response = await fetch(`${API_BASE}/api/auth/fitbit/disconnect`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

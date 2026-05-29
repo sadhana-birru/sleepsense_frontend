@@ -14,6 +14,9 @@ import slideSleep from '../assets/slide_sleep_custom.jpg';
 import slidePeace from '../assets/slide_peace_custom.jpg';
 import slideBuddha from '../assets/slide_buddha.jpg';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 /* ── Carousel Data ── */
 const SLIDES = [
   { image: slideSleep },
@@ -51,7 +54,7 @@ export default function Dashboard() {
   useEffect(() => {
     const checkFitbitStatus = async () => {
       try {
-        const response = await fetch('/api/auth/fitbit/status', {
+        const response = await fetch(`${API_BASE}/api/auth/fitbit/status`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (response.status === 401) {
@@ -70,7 +73,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!token || token === 'null' || token === 'undefined') return;
-    fetch('/api/history', { headers: { Authorization: `Bearer ${token}` } })
+    fetch(`${API_BASE}/api/history`, { headers: { Authorization: `Bearer ${token}` } })
       .then(r => {
         if (r.status === 401) {
           logout();
@@ -90,7 +93,7 @@ export default function Dashboard() {
     const fetchFitbitData = async () => {
       setIsLoadingFitbitData(true);
       try {
-        const response = await fetch(`/api/fitbit/sleep/${selectedDate}`, {
+        const response = await fetch(`${API_BASE}/api/fitbit/sleep/${selectedDate}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (response.status === 401) {

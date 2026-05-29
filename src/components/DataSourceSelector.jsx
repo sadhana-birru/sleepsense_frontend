@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Activity, Moon, Edit3, Check, AlertCircle } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 const DataSourceSelector = ({ 
   date, 
   onDataSourceChange, 
@@ -19,7 +22,7 @@ const DataSourceSelector = ({
     setError(null);
     
     try {
-      const response = await fetch(`/api/fitbit/sleep/${date}`, {
+      const response = await fetch(`${API_BASE}/api/fitbit/sleep/${date}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

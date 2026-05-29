@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import InputForm from '../components/InputForm';
 import { useAuth } from '../hooks/useAuth';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 export default function CheckIn() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -21,14 +24,13 @@ export default function CheckIn() {
         data.append('audio', audioBlob, 'voice_sample.wav');
       }
 
-
       // Important: Add the authorization header if token exists
       const headers = {};
       if (token && token !== 'null' && token !== 'undefined') {
         headers['Authorization'] = `Bearer ${token}`;
       }
 
-      const response = await fetch('/api/analyze', {
+      const response = await fetch(`${API_BASE}/api/analyze`, {
         method: 'POST',
         headers,
         body: data,

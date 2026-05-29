@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import bannerImg from '../assets/auth_banner.jpg';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
+
 function HeroLeft() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden bg-[#0B0E14]">
@@ -43,7 +46,7 @@ export default function Signup() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch(`${API_BASE}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, age: ageNum }),

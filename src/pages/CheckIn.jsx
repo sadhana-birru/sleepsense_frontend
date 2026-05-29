@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import InputForm from '../components/InputForm';
 import { useAuth } from '../hooks/useAuth';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 
 export default function CheckIn() {

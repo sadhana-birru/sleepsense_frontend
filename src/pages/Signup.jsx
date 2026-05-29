@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import bannerImg from '../assets/auth_banner.jpg';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 
 function HeroLeft() {

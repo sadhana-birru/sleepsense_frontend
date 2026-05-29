@@ -11,7 +11,7 @@ import {
   CartesianGrid, Tooltip,
 } from 'recharts';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 /* ── Utils ── */
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

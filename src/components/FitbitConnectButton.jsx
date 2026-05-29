@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, ExternalLink, Check, X, Loader2 } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 
 const FitbitConnectButton = ({ onDisconnect, isConnected, isLoading = false }) => {

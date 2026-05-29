@@ -4,7 +4,7 @@ import { cn } from '../utils/cn';
 import DataSourceSelector from './DataSourceSelector';
 import { AudioRecorder } from '../utils/audioUtils';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 
 function CustomSelect({ options, value, onChange, name, triggerClassName, dropdownClassName }) {

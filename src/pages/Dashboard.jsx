@@ -14,7 +14,7 @@ import slideSleep from '../assets/slide_sleep_custom.jpg';
 import slidePeace from '../assets/slide_peace_custom.jpg';
 import slideBuddha from '../assets/slide_buddha.jpg';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 
 /* ── Carousel Data ── */

@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
-import { PlusCircle, Sun, Moon } from 'lucide-react';
+import { PlusCircle, Sun, Moon, Menu } from 'lucide-react';
 
 const PAGE_TITLES = {
   '/dashboard':       'Dashboard',
@@ -16,7 +16,7 @@ const PAGE_TITLES = {
   '/settings':        'Settings',
 };
 
-export default function TopNav() {
+export default function TopNav({ onMenuClick }) {
   const { user } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
@@ -39,8 +39,16 @@ export default function TopNav() {
         borderLeft: '1px solid var(--border-color)',
       }}
     >
-      {/* Page title */}
-      <h2 className="text-5xl font-black tracking-tighter text-[var(--text-main)] ml-6 uppercase">{title}</h2>
+      {/* Page title and mobile menu */}
+      <div className="flex items-center gap-3">
+        <button 
+          onClick={onMenuClick}
+          className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10"
+        >
+          <Menu size={20} />
+        </button>
+        <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-[var(--text-main)] uppercase">{title}</h2>
+      </div>
 
       {/* Right actions */}
       <div className="flex items-center gap-4">

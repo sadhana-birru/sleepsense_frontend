@@ -14,7 +14,7 @@ const NAV_ITEMS = [
   { to: '/help',             icon: HelpCircle,      label: 'Help' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, setIsOpen }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -25,9 +25,10 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="fixed left-0 top-0 h-screen flex flex-col z-40 transition-all duration-300"
+      className={`fixed left-0 top-0 h-screen flex flex-col z-50 transition-all duration-300 
+        w-64 md:w-20 lg:w-64 
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
       style={{
-        width: '200px',
         background: 'var(--bg-sidebar)',
         backdropFilter: 'blur(24px) saturate(140%)',
         borderRight: '1px solid var(--border-color)',
@@ -39,7 +40,7 @@ export default function Sidebar() {
           style={{ background: 'linear-gradient(135deg,#7D6BDB,#22D3EE)', boxShadow: '0 4px 15px rgba(125,107,219,0.3)' }}>
           <Brain size={28} color="#fff" />
         </div>
-        <div>
+        <div className="block md:hidden lg:block">
           <p className="text-white font-bold text-sm leading-tight tracking-wider uppercase">SleepSense</p>
           <p className="text-[10px] leading-none mt-0.5" style={{ color: '#EDE9FE', opacity: 0.75 }}>AI</p>
         </div>
@@ -51,12 +52,13 @@ export default function Sidebar() {
           <NavLink
             key={to}
             to={to}
+            onClick={() => setIsOpen && setIsOpen(false)}
             className={({ isActive }) =>
               `sidebar-nav-item ${isActive ? 'active' : ''}`
             }
           >
             <Icon size={28} strokeWidth={1.8} />
-            <span>{label}</span>
+            <span className="block md:hidden lg:block text-[11px] leading-tight tracking-wide font-extrabold text-center mt-1">{label}</span>
           </NavLink>
         ))}
       </nav>
@@ -68,7 +70,7 @@ export default function Sidebar() {
           className="sidebar-nav-item w-full !text-rose-400 hover:!bg-rose-500/10"
         >
           <LogOut size={28} strokeWidth={1.8} />
-          <span>Logout</span>
+          <span className="block md:hidden lg:block text-[11px] leading-tight tracking-wide font-extrabold text-center mt-1">Logout</span>
         </button>
       </div>
     </aside>

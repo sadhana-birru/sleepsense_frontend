@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -12,6 +12,7 @@ const pageVariants = {
 
 export default function DashboardLayout({ children }) {
   const location = useLocation();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex min-h-screen relative overflow-hidden" style={{ background: 'var(--bg-main)' }}>
@@ -20,12 +21,20 @@ export default function DashboardLayout({ children }) {
       <div className="absolute top-[35%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[#22D3EE]/12 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[15%] w-[45%] h-[45%] rounded-full bg-[#E9D5FF]/18 blur-[120px] pointer-events-none" />
 
+      {/* Sidebar overlay on mobile */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden backdrop-blur-sm transition-opacity"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
       {/* Main content area */}
-      <div className="flex flex-col flex-1 min-h-screen relative z-10" style={{ marginLeft: '220px' }}>
-        <TopNav />
+      <div className="flex flex-col flex-1 min-h-screen relative z-10 w-full md:ml-20 lg:ml-64 transition-all duration-300">
+        <TopNav onMenuClick={() => setSidebarOpen(true)} />
         <AnimatePresence mode="wait">
           <motion.main
             key={location.pathname}

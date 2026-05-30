@@ -134,7 +134,7 @@ const DataSourceSelector = ({
                 <Check size={14} className="text-green-400 mr-2" />
                 <span className="text-green-400 font-medium">Fitbit data loaded</span>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                 <div>Sleep: {Math.round((fitbitData.total_minutes_asleep || 0) / 60 * 10) / 10}h</div>
                 <div>Efficiency: {fitbitData.sleep_efficiency || 0}%</div>
                 <div>Deep: {Math.round((fitbitData.sleep_stages?.deep || 0) / 60 * 10) / 10}h</div>

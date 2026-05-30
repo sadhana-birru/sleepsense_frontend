@@ -120,7 +120,7 @@ export default function Signup() {
               <input type="email" required value={email} onChange={e=>setEmail(e.target.value)}
                 className="login-input-light" placeholder="you@example.com" id="signup-email"/>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold mb-1.5 text-slate-600 dark:text-slate-300">Age</label>
                 <input type="number" required min={1} value={age} 

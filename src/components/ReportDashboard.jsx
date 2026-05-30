@@ -101,8 +101,8 @@ export default function ReportDashboard({ data, isLoading, error }) {
 
             {/* Header / Final Status */}
             <div className="p-8 border-b border-white/5 bg-charcoal-900/40 relative overflow-hidden flex-shrink-0">
-                <div className="absolute right-[-10%] top-[-20%] w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px]" />
-                <div className="absolute left-[-10%] bottom-[-20%] w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px]" />
+                <div className="absolute right-[-10%] top-[-20%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-indigo-500/10 rounded-full blur-[100px]" />
+                <div className="absolute left-[-10%] bottom-[-20%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-cyan-500/10 rounded-full blur-[100px]" />
 
                 <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                     <div>

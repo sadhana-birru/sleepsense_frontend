@@ -20,7 +20,7 @@ const fadeUp = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 } }
 function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="ss-card p-3 text-xs min-w-[120px]">
+    <div className="ss-card p-3 text-xs min-w-0 w-max max-w-[150px]">
       <p className="text-[#8B949E] mb-2 font-medium">{label}</p>
       {payload.map(p => (
         <p key={p.dataKey} className="flex items-center justify-between gap-4">

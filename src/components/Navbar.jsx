@@ -79,7 +79,7 @@ export default function Navbar() {
 
               {/* Profile Dropdown */}
               {isProfileOpen && (
-                <div className="absolute right-0 top-14 w-72 glass-panel p-6 border-white/10 bg-charcoal-900/95 backdrop-blur-3xl shadow-2xl shadow-indigo-900/50 rounded-3xl animate-in fade-in zoom-in-95 duration-200">
+                <div className="absolute right-0 top-14 w-[90vw] sm:w-72 max-w-sm glass-panel p-6 border-white/10 bg-charcoal-900/95 backdrop-blur-3xl shadow-2xl shadow-indigo-900/50 rounded-3xl animate-in fade-in zoom-in-95 duration-200">
                   <div className="flex flex-col items-center text-center">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500 p-1 mb-4 shadow-lg shadow-cyan-500/30">
                       <div className="w-full h-full bg-charcoal-950 rounded-full flex items-center justify-center text-white font-black text-3xl">

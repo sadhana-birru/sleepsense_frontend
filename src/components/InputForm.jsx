@@ -338,7 +338,7 @@ export default function InputForm({ onSubmit, isLoading }) {
                         <input type="range" name="work_hours" min="0" max="24" step="0.5" value={formData.biometrics.work_hours} onChange={handleBiometricChange} />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2 relative focus-within:z-50">
                             <label className="text-sm text-gray-400 font-medium flex items-center gap-2"><Moon size={14} /> Bedtime</label>
                             <TimePicker name="bedtime_num" valueMins={formData.biometrics.bedtime_num} onChange={handleTimeChange} />
@@ -349,7 +349,7 @@ export default function InputForm({ onSubmit, isLoading }) {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                             <label className="text-sm text-gray-400 font-medium">Actual Sleep (hrs)</label>
                             <input type="number" name="sleep_duration" step="0.1" value={formData.biometrics.sleep_duration} onChange={handleBiometricChange} className="glass-input w-full" />

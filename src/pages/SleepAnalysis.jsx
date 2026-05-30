@@ -96,7 +96,7 @@ export default function SleepAnalysis() {
               {/* Sleep stages grid */}
               <div className="flex-1">
                 <p className="text-sm font-semibold text-white mb-3">Sleep Stages</p>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {STAGES.map(({ label, value, pct, color }) => (
                     <div key={label} className="p-3 rounded-xl"
                       style={{ background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.063)' }}>

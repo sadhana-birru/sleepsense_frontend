@@ -217,7 +217,7 @@ export default function Dashboard() {
             />
           </div>
           {/* Fitbit Button */}
-          <div className="min-w-[180px]">
+          <div className="min-w-0 w-full sm:w-auto">
             <FitbitConnectButton
               isConnected={isFitbitConnected}
               onDisconnect={() => setIsFitbitConnected(false)}

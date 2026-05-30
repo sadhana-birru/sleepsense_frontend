@@ -101,7 +101,7 @@ export default function VoiceAnalysis() {
             <BarChart2 size={16} color="#7D6BDB"/>
             <p className="text-sm font-semibold text-white">Analysis Results</p>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {RESULTS.map(({ label, value, color }) => (
               <div key={label} className="p-3 rounded-xl text-center"
                 style={{ background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.063)' }}>
